@@ -26,6 +26,7 @@ app.post('/api/new', (req, res) => {
 })
 
 app.use('/api/login/new',require('./routres/login'))
+app.use('/api/sms',require('./routres/login'))
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

