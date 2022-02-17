@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Jenzriabdlaziz1/e-api#readme",
   "dependencies": {
+    "@supercharge/request-ip": "^1.1.2",
     "axios": "^0.25.0",
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
@@ -27,6 +28,10 @@
     "express": "^4.17.2",
     "express-async-handler": "^1.2.0",
     "geoip-lite": "^1.4.3",
-    "jsonwebtoken": "^8.5.1"
+    "http": "0.0.1-security",
+    "ipify": "^6.0.0",
+    "ipify2": "^1.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "request-ip": "^2.1.3"
   }
 }
